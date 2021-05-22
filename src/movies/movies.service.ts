@@ -33,8 +33,7 @@ export class MoviesService {
   update(id: number, updateData: UpdateMovieDto) {
     this.getOne(id);
     this.movies = this.movies.map((movie) => {
-      if (movie.id === id) return { ...movie, ...updateData };
-      return movie;
+      return movie.id === id ? { ...movie, ...updateData } : movie;
     });
   }
 }
